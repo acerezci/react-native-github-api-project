@@ -8,11 +8,9 @@ const Item = ({ userName, avatar, index }) => {
             onPress={() => console.log(userName)}
             index={index}
         >
-            <Avatar
-                source={{ uri: avatar }}
-            />
+            <Avatar source={{ uri: avatar }} />
             <Name>{userName}</Name>
-            <RightIcon>></RightIcon>
+            <RightIcon source={{ uri: 'https://img.icons8.com/ios/50/000000/forward--v1.png' }} />
         </ItemContainer>
     );
 };
@@ -26,7 +24,8 @@ const UsersList = ({ item }) => {
                     userName={item.login}
                     avatar={item.avatar_url}
                     index={index}
-                />}
+                />
+            }
             keyExtractor={item => item.id.toString()}
         />
     );
@@ -41,6 +40,7 @@ const ItemContainer = styled.TouchableOpacity`
     borderColor:#eee;
     borderStyle:solid;
 `;
+
 const Avatar = styled.Image`
     width:50px;
     height:50px;
@@ -49,14 +49,14 @@ const Avatar = styled.Image`
 `;
 
 const Name = styled.Text`
-    font-size: 16px;
+    font-size: 17px;
 `;
 
-const RightIcon = styled.Text`
-    font-size:22px;
+const RightIcon = styled.Image`
+    width:20px;
+    height:20px;
     position:absolute;
-    right:20px;
-
+    right:25px;
 `;
 
 export { UsersList };

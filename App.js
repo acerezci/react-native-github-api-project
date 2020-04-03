@@ -1,19 +1,15 @@
 import React from 'react';
-import { View } from "react-native";
-import Home from './src/screen/Home';
-import styled from 'styled-components';
+import { Provider } from 'react-redux';
+import store from './src/store';
+import Router from './src/Router';
 
 const App = () => {
   return (
-    <MainContainer>
-      <Home />
-    </MainContainer>
+    <Provider store={store}>
+      <Router />
+    </Provider>
   );
 };
-
-const MainContainer = styled.View`
-  flex:1;
-`;
 
 export default App;
 

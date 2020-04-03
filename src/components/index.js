@@ -1,2 +1,3 @@
 export * from './Search';
-export * from './UserList';
+export * from './UsersList';
+export * from './Loader';

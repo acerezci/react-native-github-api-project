@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
+import allActions from './../actions';
 
 const Search = () => {
     const [userName, setUserName] = useState('');
+    const dispatch = useDispatch();
 
     return (
         <SearchContainer>
-            <SearchInput placeholder="Github User" onChangeText={(text) => {
-                setUserName(text);
-                console.log(text);
-            }} />
+            <SearchInput placeholder="Github User" onChangeText={(text) => setUserName(text)} />
             <SearchButton
                 onPress={() => {
-                    if (userName.length >= 1) console.log("fetch data");
+                    if (userName.length >= 1)
+                        dispatch(allActions.searchActions.getSearchResult(userName));
                 }}
             >
                 <SearchButtonText>Search</SearchButtonText>
