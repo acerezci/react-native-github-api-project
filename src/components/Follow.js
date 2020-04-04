@@ -1,11 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import { useNavigation } from '@react-navigation/native';
 const Follow = ({ user }) => {
+    const navigation = useNavigation();
     return (
         <FollowContainer>
             <FollowerContainer
-                onPress={() => console.log("Go Modal Page")}
+                onPress={() => {
+                    navigation.navigate('MyModal', {
+                        userName: user.login, followType: 'followers'
+                    });
+                }}
             >
                 <FollowerIcon
                     source={{ uri: 'https://img.icons8.com/ios/50/000000/user.png' }}
@@ -13,7 +18,11 @@ const Follow = ({ user }) => {
                 <FollowText>{user.followers} followers</FollowText>
             </FollowerContainer>
             <FollowedContainer
-                onPress={() => console.log("Go Modal Page")}
+                onPress={() => {
+                    navigation.navigate('MyModal', {
+                        userName: user.login, followType: 'following'
+                    });
+                }}
             >
                 <FollowedIcon
                     source={{ uri: 'https://img.icons8.com/android/24/000000/new-moon.png' }}

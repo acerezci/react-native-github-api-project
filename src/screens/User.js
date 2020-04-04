@@ -39,13 +39,9 @@ const User = () => {
     );
 };
 
-const UserContainer = styled.ScrollView`
+const UserContainer = styled.View`
     flex:1;
     background-color:#ddd;
-`;
-
-const Text = styled.Text`
-    font-size:21px;
 `;
 
 export default User;

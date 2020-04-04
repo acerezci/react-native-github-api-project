@@ -4,7 +4,10 @@ import {
     LOADING_USER,
     LOADING_USER_REPOS,
     GET_USER_REPOS_ERROR,
-    GET_USER_REPOS_SUCCESS
+    GET_USER_REPOS_SUCCESS,
+    LOADING_USER_FOLLOW,
+    GET_USER_FOLLOW_ERROR,
+    GET_USER_FOLLOW_SUCCESS
 } from './types';
 import axios from 'axios';
 
@@ -54,7 +57,31 @@ const getUserRepos = (userName) => {
     };
 };
 
+const getUserFollowSuccess = (dispatch, users) => {
+    dispatch({
+        type: GET_USER_FOLLOW_SUCCESS,
+        payload: users
+    });
+};
+
+const getUserFollowError = (dispatch, error) => {
+    dispatch({
+        type: GET_USER_FOLLOW_ERROR,
+        payload: error
+    });
+};
+
+const getUserFollow = (userName, followType) => {
+    return dispatch => {
+        dispatch({ type: LOADING_USER_FOLLOW });
+        return axios.get(`https://api.github.com/users/${userName}/${followType}`)
+            .then(response => getUserFollowSuccess(dispatch, response.data))
+            .catch(error => getUserFollowError(dispatch, error));
+    };
+};
+
 export default {
     getUser,
-    getUserRepos
+    getUserRepos,
+    getUserFollow
 };
