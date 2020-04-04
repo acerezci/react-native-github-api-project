@@ -12,7 +12,7 @@ const Follow = ({ user }) => {
                     });
                 }}
             >
-                <FollowerIcon
+                <FollowIcon
                     source={{ uri: 'https://img.icons8.com/ios-glyphs/30/000000/user-male.png' }}
                 />
                 <FollowText>{user.followers} followers</FollowText>
@@ -24,7 +24,7 @@ const Follow = ({ user }) => {
                     });
                 }}
             >
-                <FollowedIcon
+                <FollowIcon
                     source={{ uri: 'https://img.icons8.com/ios-glyphs/30/000000/user-male.png' }}
                 />
                 <FollowText>{user.following} following</FollowText>
@@ -40,9 +40,9 @@ const FollowContainer = styled.View`
 `;
 
 const FollowText = styled.Text`
-    font-size:14px;
+    font-size:15px;
     color:#24292e;
-    font-weight:700;
+    font-family:SourceSansPro-SemiBold;
 `;
 
 const FollowerContainer = styled.TouchableOpacity`
@@ -57,13 +57,7 @@ const FollowedContainer = styled.TouchableOpacity`
     justify-content:center;
 `;
 
-const FollowerIcon = styled.Image`
-    width:15px;
-    height:15px;
-    margin-right:2px;
-`;
-
-const FollowedIcon = styled.Image`
+const FollowIcon = styled.Image`
     width:15px;
     height:15px;
     margin-right:2px;

@@ -35,6 +35,8 @@ const SearchInput = styled.TextInput`
     border:1.5px solid #24292e;
     padding:10px;
     color:#24292e;
+    font-family:SourceSansPro-SemiBold;
+
 `;
 
 export { Search };

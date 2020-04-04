@@ -1,22 +1,18 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { useNavigation } from '@react-navigation/native';
 import { UsersList, Loader } from '../components';
-
+import { useNavigation } from "@react-navigation/native";
 import { useSelector, useDispatch } from 'react-redux';
 import allActions from './../actions';
 
 const MyModal = ({ route }) => {
-    const navigation = useNavigation();
     const dispatch = useDispatch();
     const { userName, followType } = route.params;
-
     useEffect(() => {
         dispatch(allActions.user.getUserFollow(userName, followType));
     }, []);
-
+    useNavigation().setOptions({ title: followType === 'followers' ? 'Followers' : 'Following' });
     const followSelector = useSelector(state => state.followList);
-    console.log(followSelector);
     return (
         <ModalContainer>
             {
@@ -40,6 +36,7 @@ const EmptyFollowListText = styled.Text`
     margin-top:10px;
     text-align:center;
     font-size:21px;
+    font-family:SourceSansPro-SemiBold;
 `;
 
 export default MyModal;

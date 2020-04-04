@@ -27,7 +27,7 @@ const ProfileContainer = styled.View`
 const PictureContainer = styled.View`
     width:auto;
     height:auto;
-    border-radius:5px;
+    border-radius:7px;
     border:1px solid #24292e;
     margin-bottom:5px;
 `;
@@ -46,8 +46,9 @@ const TopContainer = styled.View`
 `;
 
 const NameText = styled.Text`
-    font-size:20px;
+    font-size:21px;
     color:#24292e;
+    font-family:SourceSansPro-SemiBold;
 `;
 
 export { Profile };

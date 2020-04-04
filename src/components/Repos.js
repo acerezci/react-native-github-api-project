@@ -54,9 +54,9 @@ const RepoContainer = styled.View`
 
 const RepoHeader = styled.Text`
     font-size:21px;
-    font-weight:700;
+    font-family:SourceSansPro-SemiBold;
     color:#24292e;
-    padding:0 0 5px 20px;
+    padding:0 0 5px 10px;
     border-bottom-width:2px;
     borderColor:#848484;
     borderStyle:solid;
@@ -74,11 +74,12 @@ const Container = styled.View`
 
 const RepoName = styled.Text`
     font-size:16px;
-    font-weight:bold;
+    font-family:SourceSansPro-Bold;
 `;
 
 const RepoDesc = styled.Text`
     font-size:14px;
+    font-family:SourceSansPro-Regular;
 `;
 
 const BottomContainer = styled.View`
@@ -99,7 +100,8 @@ const Icon = styled.Image`
 `;
 
 const ItemBottomText = styled.Text`
-    font-size:15px;
+    font-size:16px;
+    font-family:SourceSansPro-Regular;
 `;
 
 const DatIcon = styled.Image`

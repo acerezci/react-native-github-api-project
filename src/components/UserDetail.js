@@ -53,8 +53,9 @@ const DetailItemIcon = styled.Image`
 `;
 
 const DetailItemText = styled.Text`
+    font-family:SourceSansPro-SemiBold;
     color:#24292e;
-    font-size:15px;
+    font-size:16px;
     margin-left:10px;
 `;
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { FlatList } from 'react-native';
 import styled from 'styled-components';
+import { Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const Item = ({ userName, avatar, index }) => {
@@ -63,6 +64,7 @@ const Avatar = styled.Image`
 `;
 
 const Name = styled.Text`
+    font-family:SourceSansPro-Regular;
     font-size: 17px;
     color:#24292e;
 `;
