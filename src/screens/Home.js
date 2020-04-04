@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux';
 
 const Home = () => {
     const searchSelector = useSelector(state => state.search);
-    console.log(searchSelector);
     return (
         <HomeContainer>
             <Search />
@@ -27,7 +26,7 @@ const Home = () => {
 
 const HomeContainer = styled.View`
     flex:1;
-    background-color:#ddd;
+    background-color:#dedede;
 `;
 
 const Text = styled.Text`

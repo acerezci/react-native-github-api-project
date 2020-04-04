@@ -6,11 +6,12 @@ const Profile = ({ user }) => {
     return (
         <ProfileContainer>
             <TopContainer>
-                <Picture
-                    source={{ uri: user.avatar_url }}
-                />
+                <PictureContainer>
+                    <Picture
+                        source={{ uri: user.avatar_url }}
+                    />
+                </PictureContainer>
                 <NameText>{user.name}</NameText>
-                <UserNameText>{user.login}</UserNameText>
             </TopContainer>
             <Follow user={user} />
             <UserDetail user={user} />
@@ -23,11 +24,16 @@ const ProfileContainer = styled.View`
     padding:10px;
 `;
 
-const Picture = styled.Image`
-    width:200px;
-    height:200px;
+const PictureContainer = styled.View`
     border-radius:5px;
+    border:0.5px solid #24292e;
     margin-bottom:5px;
+`;
+
+const Picture = styled.Image`
+    width:175px;
+    height:175px;
+    border-radius:5px;
 `;
 
 const TopContainer = styled.View`
@@ -39,11 +45,7 @@ const TopContainer = styled.View`
 
 const NameText = styled.Text`
     font-size:20px;
-`;
-
-const UserNameText = styled.Text`
-    font-size:16px;
-    color:#808080
+    color:#24292e;
 `;
 
 export { Profile };

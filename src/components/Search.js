@@ -24,28 +24,28 @@ const Search = () => {
 
 const SearchContainer = styled.View`
     padding:10px;
-    background-color:#ddd;
 `;
 
 const SearchInput = styled.TextInput`
     font-size:16px;
-    background-color:#fafafa;
+    background-color:#f6f8fa;
     height:40px;
     border-radius:5px
-    border:1px solid #dedede;
+    border:1.5px solid #24292e;
     padding:10px;
     color:#24292e;
 `;
 
 const SearchButton = styled.TouchableOpacity`
-    background-color:#fff;
+    background-color:#f6f8fa;
     padding:10px;
     margin-top:10px;
     align-items:center;
-    border:1px solid #c4c9cc;
+    justify-content:center;
+    border:1.5px solid #24292e;
     border-radius:5px;
     height:40px;
-    justify-content:center;
+    color:#24292e;
 `;
 
 const SearchButtonText = styled.Text`

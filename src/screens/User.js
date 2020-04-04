@@ -9,7 +9,6 @@ import { useRoute, useNavigation } from '@react-navigation/native';
 
 const User = () => {
     const userName = useRoute().params.userName;
-    const navigation = useNavigation();
     dispatch = useDispatch();
     useEffect(() => {
         dispatch(allActions.user.getUser(userName));
@@ -18,7 +17,6 @@ const User = () => {
 
     const userSelector = useSelector(state => state.user);
     const reposSelector = useSelector(state => state.repos);
-    navigation.setOptions({ title: userSelector.user.name ? userSelector.user.name : userSelector.user.login });
 
     return (
         <UserContainer>
@@ -39,9 +37,9 @@ const User = () => {
     );
 };
 
-const UserContainer = styled.View`
+const UserContainer = styled.ScrollView`
     flex:1;
-    background-color:#ddd;
+    background-color:#dedede;
 `;
 
 export default User;

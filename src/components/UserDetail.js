@@ -5,23 +5,23 @@ const UserDetail = ({ user }) => {
     return (
         <UserDetailContainer>
             {
-                user.company &&
+                user.bio &&
                 <DetailItemContainer>
-                    <DetailItemIcon source={{ uri: 'https://img.icons8.com/ios/50/000000/company.png' }} />
-                    <DetailItemText>{user.company}</DetailItemText>
+                    <DetailItemIcon source={{ uri: 'https://img.icons8.com/ios/50/000000/parse-resume.png' }} />
+                    <DetailItemText>{user.bio}</DetailItemText>
                 </DetailItemContainer>
             }
             {
-                user.bio &&
+                user.company &&
                 <DetailItemContainer>
-                    <DetailItemIcon source={{ uri: 'https://img.icons8.com/ios/50/000000/resume.png' }} />
-                    <DetailItemText>{user.bio}</DetailItemText>
+                    <DetailItemIcon source={{ uri: 'https://img.icons8.com/dotty/24/000000/company.png' }} />
+                    <DetailItemText>{user.company}</DetailItemText>
                 </DetailItemContainer>
             }
             {
                 user.created_at &&
                 <DetailItemContainer>
-                    <DetailItemIcon source={{ uri: 'https://img.icons8.com/ios/50/000000/calendar-plus.png' }} />
+                    <DetailItemIcon source={{ uri: 'https://img.icons8.com/ios/50/000000/calendar.png' }} />
                     <DetailItemText>{user.created_at.substring(0, 10)}</DetailItemText>
                 </DetailItemContainer>
             }
@@ -31,6 +31,10 @@ const UserDetail = ({ user }) => {
 
 const UserDetailContainer = styled.View`
     flex-direction:column;
+    margin-top:10px;
+    border-top-width:.9px;
+    borderColor:#848484;
+    borderStyle:solid;
 `;
 
 const DetailItemContainer = styled.View`
@@ -38,8 +42,9 @@ const DetailItemContainer = styled.View`
     align-items:center;
     margin-bottom:10px;
     border-bottom-width:.9px;
-    borderColor:#616161;
+    borderColor:#848484;
     borderStyle:solid;
+    padding:15px;
 `;
 
 const DetailItemIcon = styled.Image`
@@ -48,8 +53,9 @@ const DetailItemIcon = styled.Image`
 `;
 
 const DetailItemText = styled.Text`
+    color:#24292e;
     font-size:14px;
-    margin-left:5px;
+    margin-left:10px;
 `;
 
 export { UserDetail };

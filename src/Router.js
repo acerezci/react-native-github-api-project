@@ -10,11 +10,19 @@ import MyModal from './screens/MyModal';
 const MainStack = createStackNavigator();
 
 const Router = () => {
+    const headerOptions = {
+        headerStyle: { backgroundColor: '#24292e' },
+        headerTintColor: '#ffffff',
+        headerTitleAlign: 'center',
+        headerTitleStyle: {
+            fontWeight: 'bold',
+        },
+    };
     return (
         <NavigationContainer>
-            <MainStack.Navigator mode="modal" >
-                <MainStack.Screen name="Home" component={Home} />
-                <MainStack.Screen name="User" component={User} />
+            <MainStack.Navigator mode="modal" screenOptions={headerOptions} >
+                <MainStack.Screen name="Home" component={Home} options={{ title: 'Github Search' }} />
+                <MainStack.Screen name="User" component={User} options={{ title: 'Profile' }} />
                 <MainStack.Screen name="MyModal" component={MyModal} />
             </MainStack.Navigator>
         </NavigationContainer>

@@ -7,12 +7,14 @@ const Item = ({ userName, avatar, index }) => {
     const navigation = useNavigation();
     return (
         <ItemContainer
-            onPress={() => navigation.navigate('User',{
+            onPress={() => navigation.navigate('User', {
                 userName
             })}
             index={index}
         >
-            <Avatar source={{ uri: avatar }} />
+            <AvatarContainer>
+                <Avatar source={{ uri: avatar }} />
+            </AvatarContainer>
             <Name>{userName}</Name>
             <RightIcon source={{ uri: 'https://img.icons8.com/ios/50/000000/forward--v1.png' }} />
         </ItemContainer>
@@ -45,15 +47,24 @@ const ItemContainer = styled.TouchableOpacity`
     borderStyle:solid;
 `;
 
+const AvatarContainer = styled.View`
+    width:auto;
+    height:auto;
+    border:1px solid #ccc;
+    border-radius:25px;
+    margin-right:15px;
+
+`;
+
 const Avatar = styled.Image`
     width:50px;
     height:50px;
     border-radius:25px;
-    margin-right:15px;
 `;
 
 const Name = styled.Text`
     font-size: 17px;
+    color:#24292e;
 `;
 
 const RightIcon = styled.Image`

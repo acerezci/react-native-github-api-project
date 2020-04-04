@@ -55,24 +55,30 @@ const RepoContainer = styled.View`
 
 const RepoHeader = styled.Text`
     font-size:21px;
-    margin-bottom:5px;
-    text-align:center;
+    font-weight:700;
+    color:#24292e;
+    padding:0 0 5px 20px;
+    border-bottom-width:2px;
+    borderColor:#848484;
+    borderStyle:solid;
 `;
 
 const Container = styled.View`
     flex-direction:column;
     padding:10px;
-    background-color: ${props => props.index % 2 === 0 ? '#ffffff' : '#fafafa'}
-    margin-bottom:5px;
+    padding:15px;
+    border-bottom-width:.9px;
+    borderColor:#848484;
+    borderStyle:solid;
 `;
 
 const RepoName = styled.Text`
-    font-size:18px;
+    font-size:16px;
     font-weight:bold;
 `;
 
 const RepoDesc = styled.Text`
-    font-size:16px;
+    font-size:14px;
 `;
 
 const BottomContainer = styled.View`
