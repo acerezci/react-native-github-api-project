@@ -1,4 +1,4 @@
-import { LOADING_USERS, GET_SEARCH_ERROR, GET_SEARCH_SUCCESS } from '../actions/types';
+import { LOADING_USERS, GET_SEARCH_ERROR, GET_SEARCH_SUCCESS, RESET_SEARCH_DATA } from '../actions/types';
 
 const INITIAL_STATE = {
     users: [],
@@ -15,6 +15,8 @@ const search = (state = INITIAL_STATE, action) => {
             return { ...state, users: action.payload.items, loading: false, total_count: action.payload.total_count }
         case GET_SEARCH_ERROR:
             return { ...state, error: action.payload, loading: false }
+        case RESET_SEARCH_DATA:
+            return INITIAL_STATE;
         default:
             return state;
     }

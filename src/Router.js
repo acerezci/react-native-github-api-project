@@ -18,6 +18,7 @@ const Router = () => {
             fontWeight: 'bold',
         },
     };
+    
     return (
         <NavigationContainer>
             <MainStack.Navigator mode="modal" screenOptions={headerOptions} >

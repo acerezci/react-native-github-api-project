@@ -1,5 +1,4 @@
 import React from 'react';
-import { FlatList } from 'react-native';
 import styled from 'styled-components';
 
 const Item = ({ name, description, stars, forks, issues, index }) => {
@@ -31,19 +30,19 @@ const Repos = ({ repos }) => {
     return (
         <RepoContainer>
             <RepoHeader>Repositories</RepoHeader>
-            <FlatList
-                data={repos}
-                renderItem={({ item, index }) =>
+            {
+                repos.map((item, index) => (
                     <Item
+                        key={item.id}
                         name={item.name}
                         description={item.description}
                         index={index}
                         stars={item.stargazers_count}
                         forks={item.forks_count}
                         issues={item.open_issues_count}
-                    />}
-                keyExtractor={item => item.id.toString()}
-            />
+                    />
+                ))
+            }
         </RepoContainer>
     );
 };
@@ -62,6 +61,7 @@ const RepoHeader = styled.Text`
     borderColor:#848484;
     borderStyle:solid;
 `;
+
 
 const Container = styled.View`
     flex-direction:column;

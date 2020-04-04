@@ -25,8 +25,10 @@ const ProfileContainer = styled.View`
 `;
 
 const PictureContainer = styled.View`
+    width:auto;
+    height:auto;
     border-radius:5px;
-    border:0.5px solid #24292e;
+    border:1px solid #24292e;
     margin-bottom:5px;
 `;
 

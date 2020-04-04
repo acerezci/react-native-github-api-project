@@ -1,4 +1,4 @@
-import { LOADING_USERS, GET_SEARCH_SUCCESS, GET_SEARCH_ERROR } from './types';
+import { LOADING_USERS, GET_SEARCH_SUCCESS, GET_SEARCH_ERROR, RESET_SEARCH_DATA } from './types';
 import axios from 'axios';
 
 const getSearchSuccess = (dispatch, users) => {
@@ -24,6 +24,11 @@ const getSearchResult = (userName) => {
     };
 };
 
+const resetSearchData = () => {
+    return dispatch => dispatch({ type: RESET_SEARCH_DATA, payload: [] });
+};
+
 export default {
-    getSearchResult
-}
+    getSearchResult,
+    resetSearchData
+};

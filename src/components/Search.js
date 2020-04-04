@@ -1,23 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import allActions from './../actions';
+import { debounce } from 'lodash';
 
 const Search = () => {
-    const [userName, setUserName] = useState('');
     const dispatch = useDispatch();
+    const handleChange = debounce((text) => {
+        if (text.length > 0)
+            dispatch(allActions.search.getSearchResult(text));
+    }, 750);
 
     return (
         <SearchContainer>
-            <SearchInput placeholder="Github User" onChangeText={(text) => setUserName(text)} />
-            <SearchButton
-                onPress={() => {
-                    if (userName.length >= 1)
-                        dispatch(allActions.search.getSearchResult(userName));
-                }}
-            >
-                <SearchButtonText>Search</SearchButtonText>
-            </SearchButton>
+            <SearchInput placeholder="Github User" onChangeText={text => {
+                if (text.length === 0)
+                    dispatch(allActions.search.resetSearchData());
+                handleChange(text);
+
+            }} />
         </SearchContainer>
     );
 };
@@ -33,24 +34,6 @@ const SearchInput = styled.TextInput`
     border-radius:5px
     border:1.5px solid #24292e;
     padding:10px;
-    color:#24292e;
-`;
-
-const SearchButton = styled.TouchableOpacity`
-    background-color:#f6f8fa;
-    padding:10px;
-    margin-top:10px;
-    align-items:center;
-    justify-content:center;
-    border:1.5px solid #24292e;
-    border-radius:5px;
-    height:40px;
-    color:#24292e;
-`;
-
-const SearchButtonText = styled.Text`
-    font-size:16px;
-    font-weight:bold;
     color:#24292e;
 `;
 

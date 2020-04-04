@@ -54,7 +54,7 @@ const DetailItemIcon = styled.Image`
 
 const DetailItemText = styled.Text`
     color:#24292e;
-    font-size:14px;
+    font-size:15px;
     margin-left:10px;
 `;
 
