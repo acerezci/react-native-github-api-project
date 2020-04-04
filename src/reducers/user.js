@@ -1,4 +1,4 @@
-import { GET_USER_ERROR, GET_USER_SUCCESS, SEARCHING_USER } from '../actions/types';
+import { GET_USER_ERROR, GET_USER_SUCCESS, LOADING_USER } from '../actions/types';
 
 const INITIAL_STATE = {
     user: {},
@@ -8,7 +8,7 @@ const INITIAL_STATE = {
 
 const user = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case SEARCHING_USER:
+        case LOADING_USER:
             return { ...state, loading: true }
         case GET_USER_SUCCESS:
             return { ...state, user: action.payload, loading: false }

@@ -1,4 +1,4 @@
-import { SEARCHING_USERS, GET_SEARCH_ERROR, GET_SEARCH_SUCCESS } from '../actions/types';
+import { LOADING_USERS, GET_SEARCH_ERROR, GET_SEARCH_SUCCESS } from '../actions/types';
 
 const INITIAL_STATE = {
     users: [],
@@ -9,7 +9,7 @@ const INITIAL_STATE = {
 
 const search = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case SEARCHING_USERS:
+        case LOADING_USERS:
             return { ...state, loading: true }
         case GET_SEARCH_SUCCESS:
             return { ...state, users: action.payload.items, loading: false, total_count: action.payload.total_count }

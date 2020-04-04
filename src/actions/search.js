@@ -1,4 +1,4 @@
-import { SEARCHING_USERS, GET_SEARCH_SUCCESS, GET_SEARCH_ERROR } from './types';
+import { LOADING_USERS, GET_SEARCH_SUCCESS, GET_SEARCH_ERROR } from './types';
 import axios from 'axios';
 
 const getSearchSuccess = (dispatch, users) => {
@@ -17,7 +17,7 @@ const getSearchError = (dispatch, error) => {
 
 const getSearchResult = (userName) => {
     return dispatch => {
-        dispatch({ type: SEARCHING_USERS });
+        dispatch({ type: LOADING_USERS });
         return axios.get(`https://api.github.com/search/users?q=${userName}`)
             .then(response => getSearchSuccess(dispatch, response.data))
             .catch(error => getSearchError(dispatch, error));

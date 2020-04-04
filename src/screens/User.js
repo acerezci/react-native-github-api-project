@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { Loader, Profile } from './../components';
+import { Loader, Profile, Repos } from './../components';
 
 import { useSelector, useDispatch } from 'react-redux';
 import allActions from './../actions';
@@ -8,15 +8,17 @@ import allActions from './../actions';
 import { useRoute, useNavigation } from '@react-navigation/native';
 
 const User = () => {
-    const [userName, setUserName] = useState(useRoute().params.userName);
+    const userName = useRoute().params.userName;
     const navigation = useNavigation();
     dispatch = useDispatch();
     useEffect(() => {
         dispatch(allActions.user.getUser(userName));
+        dispatch(allActions.user.getUserRepos(userName));
     }, [userName]);
 
     const userSelector = useSelector(state => state.user);
-    navigation.setOptions({ title: userSelector.user.name });
+    const reposSelector = useSelector(state => state.repos);
+    navigation.setOptions({ title: userSelector.user.name ? userSelector.user.name : userSelector.user.login });
 
     return (
         <UserContainer>
@@ -26,12 +28,18 @@ const User = () => {
             {
                 userSelector.loading && <Loader />
             }
+            {
+                reposSelector.loading && <Loader />
+            }
+            {
+                reposSelector.repos.length > 0 && <Repos repos={reposSelector.repos} />
+            }
 
         </UserContainer>
     );
 };
 
-const UserContainer = styled.View`
+const UserContainer = styled.ScrollView`
     flex:1;
     background-color:#ddd;
 `;
