@@ -13,7 +13,7 @@ const Search = () => {
             <SearchButton
                 onPress={() => {
                     if (userName.length >= 1)
-                        dispatch(allActions.searchActions.getSearchResult(userName));
+                        dispatch(allActions.search.getSearchResult(userName));
                 }}
             >
                 <SearchButtonText>Search</SearchButtonText>

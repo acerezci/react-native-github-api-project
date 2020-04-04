@@ -1,7 +1,9 @@
-import searchActions from './searchActions';
+import search from './search';
+import user from './user';
 
 const allActions = {
-    searchActions
+    search,
+    user
 }
 
 export default allActions;

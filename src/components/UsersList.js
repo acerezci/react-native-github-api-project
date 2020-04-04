@@ -1,11 +1,15 @@
 import React from 'react';
 import { FlatList } from 'react-native';
 import styled from 'styled-components';
+import { useNavigation } from '@react-navigation/native';
 
 const Item = ({ userName, avatar, index }) => {
+    const navigation = useNavigation();
     return (
         <ItemContainer
-            onPress={() => console.log(userName)}
+            onPress={() => navigation.navigate('User',{
+                userName
+            })}
             index={index}
         >
             <Avatar source={{ uri: avatar }} />

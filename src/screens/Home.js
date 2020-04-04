@@ -4,7 +4,7 @@ import { Search, UsersList, Loader } from './../components';
 import { useSelector } from 'react-redux';
 
 const Home = () => {
-    const searchSelector = useSelector(state => state.searchReducer);
+    const searchSelector = useSelector(state => state.search);
     console.log(searchSelector);
     return (
         <HomeContainer>
@@ -16,10 +16,10 @@ const Home = () => {
                 searchSelector.loading && <Loader />
             }
             {
-                searchSelector.users.length >= 1 && <UsersList item={searchSelector.users} />
+                searchSelector.users.length > 0 && <UsersList item={searchSelector.users} />
             }
             {
-                searchSelector.total_count === 0 && <Text>User is not found</Text>
+                searchSelector.total_count === 0 && <Text>User is not found.</Text>
             }
         </HomeContainer>
     );

@@ -7,7 +7,7 @@ const INITIAL_STATE = {
     loading: false,
 }
 
-const searchReducer = (state = INITIAL_STATE, action) => {
+const search = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case SEARCHING_USERS:
             return { ...state, loading: true }
@@ -20,4 +20,4 @@ const searchReducer = (state = INITIAL_STATE, action) => {
     }
 };
 
-export default searchReducer;
+export default search;
